@@ -23,7 +23,7 @@ class ThreadController extends Controller
 
     public function create(Request $req)
     {
-        $thread = $this->find($id)
+        $thread = $this->thread
                     ->create([
                         'title' => $req->title,
                         'description' => $req->description,
