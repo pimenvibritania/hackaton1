@@ -33,11 +33,11 @@ class ThreadController extends Controller
                     ]);
         if($thread)
         {
-            return "Berhasil membuat thread!";
+            return ['success', "Berhasil membuat thread!"];
         }
         else
         {
-            return "Gagal membuat thread!";
+            return ['error', "Gagal membuat thread!"];
         }
     }
 
@@ -60,11 +60,11 @@ class ThreadController extends Controller
                     ]);
         if($thread)
         {
-            return "Berhasil update thread!";
+            return ['success', "Berhasil update thread!"];
         }
         else
         {
-            return "Gagal update thread!";
+            return ['error', "Gagal update thread!"];
         }
     }
 
@@ -74,11 +74,11 @@ class ThreadController extends Controller
                     ->delete();
         if($thread)
         {
-            return "Berhasil menghapus thread!";
+            return ['success', "Berhasil menghapus thread!"];
         }
         else
         {
-            return "Gagal menghapus thread!";
+            return ['error', "Gagal menghapus thread!"];
         }
     }
 }

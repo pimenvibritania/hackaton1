@@ -84,6 +84,16 @@
                     Laravel
                 </div>
 
+                <form method="POST" action="/thread">
+                    @csrf
+                    <input type="text" name="title" placeholder="title">
+                    <input type="text" name="description" placeholder="description">
+                    <input type="text" name="attachment" placeholder="attachment">
+                    <input type="text" name="location" placeholder="location">
+                    <input type="text" name="tags" placeholder="tags">
+                    <input type="submit" value="add thread">
+                </form>
+
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
