@@ -18,4 +18,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Thread's Route
+Route::get('/threads', 'Thread\ThreadController@index')->name('threads');
+Route::post('/thread', 'Thread\ThreadController@create')->name('thread-new');
+Route::get('/thread/{id}', 'Thread\ThreadController@find')->name('thread');
+Route::put('/thread/{id}', 'Thread\ThreadController@update')->name('thread-update');
+Route::delete('/thread/{id}', 'Thread\ThreadController@delete')->name('thread-delete');
