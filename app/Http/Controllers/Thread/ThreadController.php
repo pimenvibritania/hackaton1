@@ -17,27 +17,35 @@ class ThreadController extends Controller
     public function index()
     {
         $threads = $this->thread->all();
-        if($threads)
+        
+        return $threads;
+    }
+
+    public function create(Request $req)
+    {
+        $thread = $this->find($id)
+                    ->create([
+                        'title' => $req->title,
+                        'description' => $req->description,
+                        'attachment' => $req->attachment,
+                        'location' => $req->location,
+                        'tags' => $req->tags,
+                    ]);
+        if($thread)
         {
-            return $threads;
+            return "Berhasil membuat thread!";
         }
         else
         {
-            return "Not found...";
+            return "Gagal membuat thread!";
         }
     }
 
     public function find($id)
     {
         $thread = $this->thread->find($id);
-        if($threads)
-        {
-            return $threads;
-        }
-        else
-        {
-            return "Not found...";
-        }
+        
+        return $thread;
     }
 
     public function update(Request $req, $id)
