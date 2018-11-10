@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Auth::routes();
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 // Thread's Route
 Route::get('/threads', 'Thread\ThreadController@index')->name('threads');
 Route::post('/thread', 'Thread\ThreadController@create')->name('thread-new');
