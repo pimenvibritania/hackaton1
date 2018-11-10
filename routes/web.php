@@ -35,3 +35,9 @@ Route::post('/comment', 'Thread\CommentController@create')->name('thread-new');
 Route::get('/comment/{id}', 'Thread\CommentController@find')->name('thread');
 Route::delete('/comment/{id}', 'Thread\CommentController@delete')->name('thread-delete');
 // end Comment's Route
+
+// View's Route
+Route::get('/views', 'Thread\ViewController@index')->name('threads');
+Route::get('/view', 'Thread\ViewController@add')->name('thread-new');
+Route::get('/view/{id}', 'Thread\ViewController@find')->name('thread');
+// end View's Route
