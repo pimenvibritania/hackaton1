@@ -20,6 +20,9 @@ Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/thread', 'ThreadController@index')->name('thread');
+Route::get('/news', 'NewsController@index')->name('news');
+
 
 // Thread's Route
 Route::get('/threads', 'Thread\ThreadController@index')->name('threads');

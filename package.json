@@ -21,6 +21,9 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.5.0",
-        "admin-lte": "^3.0.0-alpha.2"
+        "admin-lte": "^3.0.0-alpha.2",
+        "gulp": "^3.9.1",
+        "vue-router": "^3.0.1",
+        "wowjs": "^1.1.3"
     }
 }
