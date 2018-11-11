@@ -1,9 +1,8 @@
 @extends('layouts.master')
 
--- ***** Header Area End ***** -->
 
     <!-- ********** Hero Area Start ********** -->
-    <div class="hero-area">
+    <div id="content" class="hero-area">
 
         <!-- Hero Slides Area -->
         <div class="hero-slides owl-carousel">

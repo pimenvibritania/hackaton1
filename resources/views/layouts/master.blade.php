@@ -15,7 +15,7 @@
     <title>World - Blog &amp; Magazine Template</title>
 
     <!-- Favicon  -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+    <link rel="icon" href="/assets/img/core-img/favicon.ico">
 
     <!-- Style CSS -->
 	 <link rel="stylesheet" href="/assets/style.css">
@@ -24,9 +24,8 @@
 </head>
 
 <body>
-	<div id="app" >
 		    <!-- Preloader Start -->
-			 <div id="preloader">
+			<div id="preloader">
 				<div class="preload-content">
 					 <div id="world-load"></div>
 				</div>
@@ -47,7 +46,7 @@
 									 <div class="collapse navbar-collapse" id="worldNav">
 										  <ul class="navbar-nav ml-auto">
 												<li class="nav-item active">
-													 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                    				<a class="nav-link" href="{{ url('/home') }}">Home <span class="sr-only">(current)</span></a>
 												</li>
 												
 												<li class="nav-item">
@@ -63,22 +62,34 @@
 													 <a class="nav-link" href="#">Profile</a>
 												</li>
 												<li class="nav-item dropdown">
-												 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-													  {{ Auth::user()->name }} <span class="caret"></span>
-												 </a>
-	  
-												 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-													  <a class="dropdown-item" href="{{ route('logout') }}"
-														  onclick="event.preventDefault();
-																			 document.getElementById('logout-form').submit();">
-															{{ __('Logout') }}
-													  </a>
-	  
-													  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-															@csrf
-													  </form>
-												 </div>
-											</li>
+													@if (Route::has('login'))
+														@auth
+														<li class="nav-item">
+															<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
+															<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+																<a class="dropdown-item" href="{{ route('logout') }}"
+																	onclick="event.preventDefault();
+																						document.getElementById('logout-form').submit();">
+																		{{ __('Logout') }}
+
+																	<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+																			@csrf
+																	</form>
+																</a>
+															</div>
+														</li>
+														@else
+														<li class="nav-item">
+															<a class="nav-link" href="{{ route('login') }}">Login</a>
+														</li>
+															@if (Route::has('register'))
+															<li class="nav-item">
+																<a class="nav-link" href="{{ route('register') }}">Register</a>
+															</li>
+															@endif
+														@endauth
+													@endif
+												</li>
 										  </ul>
 										  <!-- Search Form  -->
 										  <div id="search-wrapper">
@@ -95,6 +106,8 @@
 				</div>
 		  </header>
 		  
+			@yield('content')
+
 		  <!-- ***** Footer Area Start ***** -->
 		  <footer class="footer-area">
 				<div class="container">
@@ -148,7 +161,7 @@
 		  <script src="/assets/js/active.js"></script>
 	 
 	 
-	</div>
+	
 </body>
 
 </html>
